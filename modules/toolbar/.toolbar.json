@@ -1,0 +1,8 @@
+{
+    "type": "v3/toolbar",
+    "description": "toolbar template",
+    "order": 40,
+    "enabled": true,
+    "theme": "fancy",
+    "created": 1546889799446
+}

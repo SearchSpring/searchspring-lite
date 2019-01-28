@@ -1,0 +1,8 @@
+{
+    "type": "v3/filter-summary",
+    "description": "filter summary template",
+    "order": 31,
+    "enabled": true,
+    "theme": "default",
+    "created": 1546889773165
+}

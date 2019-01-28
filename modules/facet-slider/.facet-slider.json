@@ -1,0 +1,8 @@
+{
+    "type": "v3/facet-slider",
+    "description": "make a facet a slider",
+    "order": 32,
+    "enabled": true,
+    "theme": "default",
+    "created": 1546889783988
+}

@@ -1,0 +1,8 @@
+{
+    "type": "v3/facets",
+    "description": "facet template",
+    "order": 30,
+    "enabled": true,
+    "theme": "default",
+    "created": 1546889757528
+}

@@ -1,0 +1,201 @@
+// ---- INFORMATION
+//
+// 01. Variables with true/false values can turned on or off.
+// 02. Default values set to '' (empty) can be left blank to not generate extra styles.
+// 03. Variables named $xx-spacing accept TWO values: margin, padding.
+//	   Example: 0 0 10px 0, 0 0 5px 0
+// 04. Variables named $xx-font accept FIVE values: font-size, 'font-family', 'font-weight', 'font-style', 'text-transform'.
+//	   Example: 12px, 'arial', 'bold', 'italic', 'uppercase'
+// 04. Variables named $xx-border accept FOUR values: 'side', size, 'style', radius.
+//	   A blank 'side' value ('') shows no border. Radius value is not effected by this.
+//	   Example: 'border', 1px, 'dashed', 3px -or- 'border-left', 1px, 'dashed', ''
+// 05. Values can be entered as variables.
+//	   Example: $value-2
+// 06. Numeric values (such as with pixels) should be left unquoted. Other values could also be left unquoted, but numbers for sure.
+
+// ---- RESULTS
+
+	// Colors
+	$results-color-01: $g-color-10; // results title
+	$results-color-02: $g-color-09; // results title count
+
+	// Configuration
+	$results-header-spacing: '', '';
+	$results-spacing: '', ''; // add margin or padding
+	$results-title-spacing: 0 0 20px 0, ''; // add margin or padding
+	$results-title-font: 20px, $g-font-family-01, $g-font-weight, '', $g-font-transform; // add font styles
+	$results-title-count-font: '', '', '', '', ''; // add font styles
+
+// ---- ITEMS
+
+	// Colors
+	$results-item-color-01: ''; // item border
+	$results-item-color-02: ''; // item background
+	$results-item-color-03: ''; // image background
+	$results-item-color-04: $g-color-09; // image border
+	$results-item-color-05: $g-color-09; // mid border
+	$results-item-color-06: ''; // details background
+	$results-item-color-07: $g-color-10; // item name
+	$results-item-color-08: $g-color-08; // regular price
+	$results-item-color-09: $g-color-09; // sale price
+	$results-item-color-10: $g-color-07; // msrp price
+	$results-item-color-11: $g-color-08; // description
+
+	// Configuration
+	$results-item-offset: ''; // add padding (ex: 0 5px) to searchspring-content to show edges of ribbon badge or item box-shadow
+	$results-item-gutter: 10px; // the spacing between items (in pixels)
+	$results-item-border: '', 1px, 'solid', ''; // add border styles
+	$results-item-shadow: ''; // pixel values followed by color, ex: 0 3px 9px, rgba(0,0,0,0.3)
+	$results-item-image-fit-on: false; // images to fit height or width of container
+	$results-item-image-border: '', 1px, 'solid', ''; // add border styles
+	$results-item-mid-border: 'border', 3px, 'solid', ''; // add border styles
+	$results-item-mid-size: 100%; // size of mid border element
+	$results-item-mid-offset: -1.5px; // amount to adjust mid border position by
+	$results-item-elements-spacing: 0 0 10px 0, ''; // add margin or padding for elements inside ss-item-details
+	$results-item-name-font: 16px, $g-font-family-01, $g-font-weight, '', $g-font-transform; // add font styles
+	$results-item-name-max-height: ''; // apply max-height to ss-item-name
+	$results-item-price-align: right; // right (right aligned), left (left aligned)
+	$results-item-price-align-width: 150px; // width for right style
+	$results-item-price-align-height: 1.75rem; // min-height for left/right style (using an rem based value is best here)
+	$results-item-price-regular-font: 18px, '', $g-font-weight, '', ''; // add font styles
+	$results-item-price-sale-font: 18px, '', $g-font-weight, '', ''; // add font styles
+	$results-item-price-msrp-font: '', '', '', '', ''; // add font styles
+	$results-item-price-msrp-decoration: line-through; // strike through msrp
+
+// ---- ITEMS - GRID
+
+	// Configuration
+	$results-grid-on: false; // turn on grid item styling
+	$results-grid-selector: '.ss-item-container.ss-item-container-grid'; // selector for grid
+	$results-grid-item-margin: 0 0 20px 0; // margin for grid items
+	$results-grid-item-width: 4; // products per row
+	$results-grid-item-alignment: ''; // left, right, or center alignent
+	$results-grid-image-height: ''; // fluid should use percentage, fixed should use pixels
+	$results-grid-image-spacing: '', ''; // add margin or padding
+	$results-grid-detail-spacing: '', ''; // add margin or padding
+	$results-grid-detail-height: ''; // Add a height to ss-item-details
+	$results-grid-detail-child-inherit-on: false; // children should inherit the height above
+	$results-grid-detail-position-type: ''; // bottom or top
+	$results-grid-detail-position: 0; // position from bottom or top
+
+// ---- ITEMS - LIST
+
+	// Configuration
+	$results-list-on: true; // turn on list item styling
+	$results-list-selector: '.ss-item-container'; // selector for list
+	$results-list-item-margin: 0 0 40px 0; // margin for list items
+	$results-list-image-width: 250px; // width of image in list
+	$results-list-image-height: 80%; // fluid should use percentage, fixed should use pixels
+	$results-list-image-spacing: 0 20px 0 0, 0 20px 0 0; // add margin or padding
+	$results-list-detail-spacing: 0 0 10px 0, ''; // add margin or padding
+
+// ---- ITEMS - BREAKPOINT 1
+
+	// Configuration
+	$results-bp1-width: $g-bp2;
+	$results-bp1-grid-item-width: 3; // products per row
+	$results-bp1-grid-image-height: ''; // fluid should use percentage, fixed should use pixels
+	$results-bp1-list-image-width: 125px; // add value to resize image
+	$results-bp1-list-image-height: 100%; // fluid should use percentage, fixed should use pixels
+
+// ---- ITEMS - BREAKPOINT 2
+
+	// Configuration
+	$results-bp2-width: $g-bp3;
+	$results-bp2-grid-item-width: 2; // products per row
+	$results-bp2-grid-image-height: ''; // fluid should use percentage, fixed should use pixels
+	$results-bp2-list-image-width: 150px; // add value to resize image
+	$results-bp2-list-image-height: ''; // fluid should use percentage, fixed should use pixels
+
+// ---- ITEMS - BREAKPOINT 3
+
+	// Configuration
+	$results-bp3-width: $g-bp4;
+	$results-bp3-grid-image-height: ''; // fluid should use percentage, fixed should use pixels
+	$results-bp3-grid-image-spacing: '', ''; // add margin or padding
+	$results-bp3-grid-detail-spacing: '', ''; // add margin or padding
+	$results-bp3-list-item-alignment: center; // re-align list items center, left, or right
+	$results-bp3-list-image-height: 80%; // fluid should use percentage, fixed should use pixels
+	$results-bp3-list-image-spacing: 0 0 20px 0, 0; // add margin or padding
+	$results-bp3-list-detail-spacing: 20px 0 0 0, ''; // add margin or padding
+	$results-bp3-list-description-on: false; // show or hide description on mobile
+	$results-bp3-list-button-on: true; // show or hide view details button on mobile
+
+// ---- VIEW DETAILS
+
+	// Colors
+	$results-button-color-01: $g-color-01; // button font
+	$results-button-color-02: $g-color-09; // button bg
+	$results-button-color-03: ''; // button border
+
+	// Configuration
+	$results-button-on: true;
+	$results-button-spacing: 20px 0 0 0, 15px 20px; // add margin or padding
+	$results-button-border: '', 1px, 'solid', ''; // add border styles
+	$results-button-font: '', '', '', '', ''; // add font styles
+
+// ---- BADGES
+
+	// Colors
+	$results-badge-color-01: $g-color-09; // badge
+	$results-badge-color-02: $g-color-01; // badge font
+	$results-badge-color-03: $g-color-01; // badge sub font
+
+	// Configuration
+	$results-badge-on: true; // turn on badge styles
+	$results-badge-style: style2; // style1 ribbon, style2 square, style3 centered rectangle
+	$results-badge-main-font: 10px, '', '', '', 'uppercase'; // add font styles
+	$results-badge-top: 10px; // default top position
+	$results-badge-bottom: ''; // add a pixel value to move badge to bottom
+	$results-badge-left: 10px; // default left position (not used on style3)
+	$results-badge-right: ''; // add a pixel value to move badge to right (not used on style3)
+
+	// Configuration - Style 1
+	$results-badge-style1-width: 80px; // width
+	$results-badge-style1-height: 24px; // height
+	$results-badge-style1-corner-size: 5px; // size of triangle in lower corner
+	$results-badge-style1-sub-font: '', '', '', '', ''; // add font styles
+
+	// Configuration - Style 2
+	$results-badge-style2-size: 60px; // width and height
+	$results-badge-style2-border: '', 1px, 'solid', 100%; // add border styles
+	$results-badge-style2-main-margin: 8px 0 4px 0; // adjust position of text based on margin
+	$results-badge-style2-sub-font: 18px, 'garamond, "times new roman", sans-serif', '', 'italic', ''; // add font styles
+
+	// Configuration - Style 3
+	$results-badge-style3-max-width: ''; // width
+	$results-badge-style3-padding: ''; // padding for badge
+	$results-badge-style3-break-spans: false; // place main and sub text on own lines
+	$results-badge-style3-main-margin: ''; // adjust position of text based on margin (works if above is true)
+	$results-badge-style3-sub-font: '', '', '', '', ''; // add font styles
+
+// ---- LOADING
+
+	// Colors
+	$results-loading-color-01: $g-color-09; // icon
+	$results-loading-color-02: $g-color-10; // font
+	$results-loading-color-03: $g-color-12; // background
+	$results-loading-color-04: ''; // border
+
+	// Configuration
+	$results-loading-on: true; // turn on loading styles
+	$results-loading-width: 120px; // width
+	$results-loading-height: 120px; // height
+	$results-loading-border: '', 1px, 'solid', 100%; // add border styles
+	$results-loading-icon-size: 50px; // size of loading icon
+	$results-loading-icon-margin: 20px auto 0 auto; // add margin to icon if needed
+	$results-loading-font: 16px, '', $g-font-weight, '', $g-font-transform; // add font styles
+
+// ---- NO RESULTS
+
+	// Colors
+	$results-none-color-01: $g-color-09; // link
+	$results-none-color-02: $g-color-10; // link hover
+	$results-none-color-03: $g-color-10; // title
+
+	// Configuration
+	$results-none-spacing: 0 0 20px 0, ''; // add margin or padding for all no results elements
+	$results-none-title-font: 14px, $g-font-family-01, $g-font-weight, '', $g-font-transform; // add font styles
+	$results-none-list-indent: 30px; // Add left indent for ul element
+	$results-none-link-decoration: ''; // underline for text underline
+	$results-none-dym-font: 18px, '', '', '', ''; // add font styles

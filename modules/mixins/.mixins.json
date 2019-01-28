@@ -1,0 +1,9 @@
+{
+    "type": "v3/mixins",
+    "description": "collection of scss mixins",
+    "priority": 1,
+    "order": 60,
+    "enabled": true,
+    "theme": "default",
+    "created": 1546889739415
+}

@@ -1,0 +1,89 @@
+@import "._variables.scss";
+
+$toolbar_module: true;
+
+@if $toolbar-on == true {
+	/* Toolbar */
+
+	.ss-toolbar {
+		@include format-spacing($toolbar-spacing);
+		@include format-border($toolbar-color-02, $toolbar-border);
+		@if $toolbar-color-01 != '' {
+			background: $toolbar-color-01;
+		}
+		@if $toolbar-shadow != '' {
+			@include box-shadow(nth($toolbar-shadow, 1), nth($toolbar-shadow, 2));
+		}
+		.ss-toolbar-row {
+			@include grid-parent($toolbar-gutter, $type: float);
+			.ss-toolbar-col {
+				@include grid-child($toolbar-gutter, $type: float);
+				@if $toolbar-dividers-on == true {
+					position: relative;
+					&:first-child:after, &:nth-child(2):before, &:nth-child(2):after, &:last-child:before {
+						content: '';
+						display: block;
+						@include position($type: absolute, $top: $toolbar-diviers-position, $bottom: $toolbar-diviers-position);
+						margin: auto;
+					}
+					&:first-child:after, &:nth-child(2):after {
+						border-right: 1px solid mix(#ffffff, $toolbar-color-03, 25%);
+						right: -1px;
+					}
+					&:nth-child(2):before, &:last-child:before {
+						border-right: 1px solid mix(#000000, $toolbar-color-03, 45%);
+						left: -1px;
+					}
+				}
+			}
+			.ss-sort-by-container {
+				width: $toolbar-sort-width;
+			}
+			.ss-per-page-container {
+				width: $toolbar-per-page-width;
+			}
+			.ss-pagination-container {
+				width: $toolbar-pagination-width;
+				float: right;
+			}
+		}
+	}
+
+	/* Toolbar - Breakpoint 1 */
+
+	@include respond($toolbar-bp1-width) {
+		.ss-toolbar {
+			.ss-toolbar-row {
+				@if $toolbar-gutter != $toolbar-bp1-gutter {
+					@include grid-parent($toolbar-bp1-gutter, $type: false, $margin: $toolbar-bp1-gutter);
+					.ss-toolbar-col {
+						@include grid-child($toolbar-bp1-gutter, $type: false, $margin: $toolbar-bp1-gutter);
+						@if $toolbar-dividers-on == true {
+							&:first-child:after, &:nth-child(2):before, &:nth-child(2):after, &:last-child:before {
+								display: none;
+							}
+						}
+					}
+				}
+				.ss-sort-by-container, .ss-per-page-container {
+					width: 50%;
+				}
+				.ss-pagination-container {
+					width: auto;
+					float: none;
+					clear: both;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	/* Toolbar - Breakpoint 2 */
+
+	@include respond($toolbar-bp2-width) {
+		.ss-toolbar .ss-toolbar-row .ss-toolbar-col {
+			width: auto;
+			float: none;
+		}
+	}
+}

@@ -1,0 +1,8 @@
+{
+    "type": "v3/pagination",
+    "description": "pagination template",
+    "order": 41,
+    "enabled": true,
+    "theme": "default",
+    "created": 1546889799440
+}

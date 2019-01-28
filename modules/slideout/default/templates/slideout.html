@@ -1,0 +1,22 @@
+<!-- Slideout Button -->
+<script type="text/ss-template" name="Slideout Button" target=".ss-slideout-toolbar">
+	<div ng-if="filterSummary.length" class="ss-summary"></div>
+
+	<div ng-if="pagination.totalResults === 0 && filterSummary.length && facets.length === 0" class="ss-filter-messages"></div>
+
+	<div ng-if="pagination.totalResults && facets.length > 0" class="ss-slideout-button" slideout>
+		<span class="ss-slideout-button-icon"></span>
+		<span class="ss-slideout-button-label">Filter Options</span>
+	</div>
+</script>
+
+<!-- Slideout Menu -->
+<script type="text/ss-template" name="Slideout Menu" slideout>
+	<div ng-if="facets.length > 0" class="ss-slideout-header">
+		<h4 class="ss-title">Filter Options</h4><a class="ss-close" slideout></a>
+	</div>
+
+	<div ng-if="facets.length > 0 && slideout.triggered" class="ss-slideout-facets" ng-swipe-left="slideout.toggleSlideout()">
+		<div class="ss-facets"></div>
+	</div>
+</script>

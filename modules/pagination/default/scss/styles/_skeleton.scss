@@ -1,0 +1,70 @@
+// ---- INFORMATION
+//
+// 01. Variables with true/false values can turned on or off.
+// 02. Default values set to '' (empty) can be left blank to not generate extra styles.
+// 03. Variables named $xx-spacing accept TWO values: margin, padding.
+//	   Example: 0 0 10px 0, 0 0 5px 0
+// 04. Variables named $xx-font accept FIVE values: font-size, 'font-family', 'font-weight', 'font-style', 'text-transform'.
+//	   Example: 12px, 'arial', 'bold', 'italic', 'uppercase'
+// 04. Variables named $xx-border accept FOUR values: 'side', size, 'style', radius.
+//	   A blank 'side' value ('') shows no border. Radius value is not effected by this.
+//	   Example: 'border', 1px, 'dashed', 3px -or- 'border-left', 1px, 'dashed', ''
+// 05. Values can be entered as variables.
+//	   Example: $value-2
+// 06. Numeric values (such as with pixels) should be left unquoted. Other values could also be left unquoted, but numbers for sure.
+
+// ---- PAGINATION
+
+	// Colors
+	$pagination-color-01: ''; // background
+	$pagination-color-02: ''; // border color
+
+	// Configuration
+	$pagination-on: false;
+	$pagination-height: 35px;
+	$pagination-spacing: '', 0 -5px; // add margin or padding
+	$pagination-border: '', 1px, 'solid', ''; // add border styles
+	$pagination-shadow: ''; // pixel values followed by color, ex: 0 3px 9px, rgba(0,0,0,0.3)
+	$pagination-top-alignment: right; // must have class ss-pagination-top added to ss-pagination-container
+	$pagination-bottom-alignment: center; // must have class ss-pagination-bottom added to ss-pagination-container
+
+// ---- PAGES
+
+	// Colors
+	$pagination-pages-color-01: ''; // page font
+	$pagination-pages-color-02: ''; // page border
+	$pagination-pages-color-03: ''; // page background
+	$pagination-pages-color-04: ''; // active page font
+	$pagination-pages-color-05: ''; // active page border
+	$pagination-pages-color-06: ''; // active page background
+	$pagination-pages-color-07: #333333; // icon color
+	$pagination-pages-color-08: #333333; // underline color
+
+	// Configuration
+	$pagination-pages-spacing: '', 0 5px; // spacing between pages
+	$pagination-pages-font: '', '', '', '', ''; // add font styles
+	$pagination-pages-border: '', 1px, 'solid', ''; // add border styles
+	$pagination-pages-shadow: ''; // pixel values followed by color, ex: 0 3px 9px, rgba(0,0,0,0.3)
+	$pagination-pages-font-active: '', '', '', '', ''; // add font styles
+	$pagination-pages-offset-active: ''; // enter a px value to move active page up/down
+	$pagination-pages-border-active: '', 1px, 'solid', ''; // add border styles
+	$pagination-pages-active-underline-on: false; // add border beneath active page number
+	$pagination-pages-active-underline-width: 3px;
+	$pagination-pages-active-underline-position: 3px;
+	$pagination-pages-icon-prev-next-size: 18px;
+	$pagination-pages-icon-size: 8px; // icon size
+	$pagination-pages-icon-prev-type: chevron-left; // icon name (grab from mixins > _icons.scss)
+	$pagination-pages-icon-next-type: chevron-right; // icon name (grab from mixins > _icons.scss)
+
+// ---- BREAKPOINT 1
+
+	// Configuration
+	$pagination-bp1-width: 767px;
+	$pagination-bp1-menu-height: ''; // line-height (height) for menu elements
+	$pagination-bp1-spacing: '', ''; // add margin or padding
+	$pagination-bp1-pages-spacing: '', ''; // add margin or padding between pages
+	$pagination-bp1-font-size: ''; // adjust pagination font size for mobile
+	$pagination-bp1-pages-offset-active: ''; // enter a px value to move active page up/down
+	$pagination-bp1-pages-active-underline-position: ''; // reposition underline if active
+	$pagination-bp1-pages-icon-prev-next-size: '';
+	$pagination-bp1-pages-icon-size: ''; // icon size

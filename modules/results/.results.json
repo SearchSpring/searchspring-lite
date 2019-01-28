@@ -1,0 +1,8 @@
+{
+    "type": "v3/results",
+    "description": "results template",
+    "order": 50,
+    "enabled": true,
+    "theme": "default",
+    "created": 1546889807985
+}

@@ -1,0 +1,60 @@
+{
+	"type": "v3/autocomplete/default",
+	"version": "1.2.4",
+	"description": "default autocomplete style",
+	"author": "searchspring",
+	"requires": ["v3/mixins/default", "v3/utilities/default"],
+	"variables": {
+		"input": {
+			"value": "input.searchspring-ac",
+			"default": "input.searchspring-ac",
+			"type": "string",
+			"description": "css selector to target",
+			"export": {
+				"sass": false,
+				"js": true
+			}
+		},
+		"action": {
+			"value": "",
+			"default": "",
+			"type": "string",
+			"description": "optional to override the form action",
+			"export": {
+				"sass": false,
+				"js": true
+			}
+		},
+		"autoPosition": {
+			"value": false,
+			"default": "false",
+			"type": "boolean",
+			"description": "enable auto-positioning of autocomplete dropdown",
+			"export": {
+				"sass": false,
+				"js": true
+			}
+		},
+		"limit": {
+			"value": "6",
+			"default": 6,
+			"type": "integer",
+			"description": "number of products to display",
+			"export": {
+				"sass": false,
+				"js": true
+			}
+		},
+		"style": {
+			"value": "inherit",
+			"default": "skeleton",
+			"type": "select",
+			"options": [],
+			"description": "style to use for this module",
+			"export": {
+				"sass": false,
+				"js": false
+			}
+		}
+	}
+}

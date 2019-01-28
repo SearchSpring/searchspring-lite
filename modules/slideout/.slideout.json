@@ -1,0 +1,9 @@
+{
+    "type": "v3/slideout",
+    "description": "slideout facet container for responsive and mobile sites",
+    "priority": 3,
+    "order": 20,
+    "enabled": true,
+    "theme": "default",
+    "created": 1546889750191
+}

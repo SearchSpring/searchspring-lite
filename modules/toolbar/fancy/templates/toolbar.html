@@ -1,0 +1,40 @@
+<!-- Toolbar - Top -->
+<script type="text/ss-template" name="Toolbar - Top" target=".ss-toolbar-top">
+	<div class="ss-toolbar-row">
+		<div class="ss-toolbar-col ss-sort-by-container">
+			<div class="ss-dropdown-menu ss-sort-by-menu" ng-class="{'ss-expanded': utilities.dropdown.open == sorting.current.label}">
+				<div class="ss-menu-label" ng-click="utilities.dropdown.show(sorting.current.label, $event)">
+					<strong>Sort By:</strong> {{ sorting.current.label }}
+					<div class="ss-menu-toggle-icon"></div>
+				</div>
+
+				<ul class="ss-list">
+					<li ng-repeat="option in sorting.options" class="ss-list-option">
+						<a ng-href="{{ option.url }}" class="ss-list-link" ng-class="{'ss-active': sorting.current.label == option.label}">
+							{{ option.label }}
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="ss-toolbar-col ss-per-page-container">
+			<div class="ss-dropdown-menu ss-per-page-menu" ng-class="{'ss-expanded': utilities.dropdown.open == pagination.perPage}">
+				<div class="ss-menu-label" ng-click="utilities.dropdown.show(pagination.perPage, $event)">
+					<strong>Per Page:</strong> {{ pagination.perPage }}
+					<div class="ss-menu-toggle-icon"></div>
+				</div>
+
+				<ul class="ss-list">
+					<li ng-repeat="n in [pagination.defaultPerPage, (pagination.defaultPerPage * 2), (pagination.defaultPerPage * 3)]" class="ss-list-option">
+						<a ng-click="pagination.perPage = n" class="ss-list-link" ng-class="{'ss-active': n == pagination.perPage}">
+							{{ n }}
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div ng-if="pagination.totalPages > 1" class="ss-toolbar-col ss-pagination-container ss-pagination-top"></div>
+	</div>
+</script>

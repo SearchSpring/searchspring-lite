@@ -1,0 +1,44 @@
+// ---- INFORMATION
+//
+// 01. Variables with true/false values can turned on or off.
+// 02. Default values set to '' (empty) can be left blank to not generate extra styles.
+// 03. Variables named $xx-spacing accept TWO values: margin, padding.
+//	   Example: 0 0 10px 0, 0 0 5px 0
+// 04. Variables named $xx-font accept FIVE values: font-size, 'font-family', 'font-weight', 'font-style', 'text-transform'.
+//	   Example: 12px, 'arial', 'bold', 'italic', 'uppercase'
+// 04. Variables named $xx-border accept FOUR values: 'side', size, 'style', radius.
+//	   A blank 'side' value ('') shows no border. Radius value is not effected by this.
+//	   Example: 'border', 1px, 'dashed', 3px -or- 'border-left', 1px, 'dashed', ''
+// 05. Values can be entered as variables.
+//	   Example: $value-2
+// 06. Numeric values (such as with pixels) should be left unquoted. Other values could also be left unquoted, but numbers for sure.
+
+// ---- TOOLBAR
+
+	// Colors
+	$toolbar-color-01: ''; // background
+	$toolbar-color-02: ''; // border
+	$toolbar-color-03: #333333; // divider color
+
+	// Configuration
+	$toolbar-on: true;
+	$toolbar-spacing: '', ''; // add margin or padding
+	$toolbar-border: '', 1px, 'solid', ''; // add border styles
+	$toolbar-shadow: ''; // pixel values followed by color, ex: 0 3px 9px, rgba(0,0,0,0.3)
+	$toolbar-gutter: 5px; // the spacing between toolbar elements (in pixels)
+	$toolbar-sort-width: 30%;
+	$toolbar-per-page-width: 20%;
+	$toolbar-pagination-width: 50%;
+	$toolbar-dividers-on: false; // add dividers between elements, this assumes you have three elements in toolbar
+	$toolbar-diviers-position: 0; // position from top and bottom
+
+// ---- BREAKPOINT 1
+
+	// Configuration
+	$toolbar-bp1-width: 991px;
+	$toolbar-bp1-gutter: 10px; // the spacing between toolbar elements (in pixels)
+
+// ---- BREAKPOINT 2
+
+	// Configuration
+	$toolbar-bp2-width: 540px;

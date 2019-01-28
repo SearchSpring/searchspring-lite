@@ -1,0 +1,20 @@
+{
+	"type": "v3/utilities/default",
+	"version": "1.0.3",
+	"description": "default utilities",
+	"author": "searchspring",
+	"requires": ["v3/mixins/default"],
+	"variables": {
+		"style": {
+			"value": "inherit",
+			"default": "skeleton",
+			"type": "select",
+			"options": [],
+			"description": "style to use for this module",
+			"export": {
+				"sass": false,
+				"js": false
+			}
+		}
+	}
+}

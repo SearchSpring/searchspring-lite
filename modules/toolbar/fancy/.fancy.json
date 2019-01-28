@@ -1,0 +1,24 @@
+{
+	"type": "v3/toolbar/fancy",
+	"version": "1.0.3",
+	"description": "fancy toolbar theme",
+	"author": "searchspring",
+	"requires": [
+		"v3/mixins/default",
+		"v3/utilities/default",
+		"v3/pagination/default"
+	],
+	"variables": {
+		"style": {
+			"value": "inherit",
+			"default": "skeleton",
+			"type": "select",
+			"options": [],
+			"description": "style to use for this module",
+			"export": {
+				"sass": false,
+				"js": false
+			}
+		}
+	}
+}

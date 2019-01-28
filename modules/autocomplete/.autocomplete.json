@@ -1,0 +1,8 @@
+{
+    "type": "v3/autocomplete",
+    "description": "rich autocomplete",
+    "order": 10,
+    "enabled": true,
+    "theme": "default",
+    "created": 1546889739425
+}

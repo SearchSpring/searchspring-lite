@@ -1,0 +1,352 @@
+@import "._variables.scss";
+
+$utilities_module: true;
+
+// Checkboxes - Quick Guide
+// 01. Update $utilities-checkbox-selector (in _variables.scss) if you require more specific selectors.
+// 02. Markup should look similar to the following:
+// 		<a href="valueUrl" class="ss-checkbox" ng-class="{'ss-active': activeConditional}">valueLabel</a>
+// 03. Place additional overrides (e.g. adjustments for autocomplete) inside the $utilities-checkbox conditional.
+// 04. To remove styles in an area (AutoComplete versus sidebar), on the facet type delete the classes or entire HTML block.
+// 05. Alternatively, use $utilities-checkbox-selector to make the selector more specific.
+
+@if $utilities-checkbox == true {
+	/* Utilities - Checkboxes */
+
+	#{$utilities-checkbox-selector} {
+		position: relative;
+		display: inline-block;
+		$padding-direction: left;
+		@if $utilities-checkbox-right != '' {
+			$padding-direction: right;
+		}
+		padding-#{$padding-direction}: $utilities-checkbox-padding;
+		&:before {
+			content: '';
+			display: block;
+			@include box-sizing;
+			@include sizing($utilities-checkbox-size, $utilities-checkbox-size);
+			@include position($type: absolute, $top: $utilities-checkbox-top);
+			@if $utilities-checkbox-right != '' {
+				right: $utilities-checkbox-right;
+			} @else {
+				left: $utilities-checkbox-left;
+			}
+			background-color: $utilities-checkbox-color-01;
+			@include format-border($utilities-checkbox-color-02, $utilities-checkbox-border);
+		}
+		&.ss-active:before {
+			@if $utilities-checkbox-style == style2 {
+				background-color: $utilities-checkbox-color-05;
+			} @else {
+				@if $utilities-checkbox-color-01 != $utilities-checkbox-color-03 {
+					background-color: $utilities-checkbox-color-03;
+				}
+			}
+			@include format-border($utilities-checkbox-color-04, $utilities-checkbox-border-active);
+			@if $utilities-checkbox-style == style2 {
+				@include box-shadow(inset $utilities-checkbox-color-03, 0 0 0 $utilities-checkbox-square-size);
+			} @else {
+				@include ss-icon($utilities-checkbox-icon-type, $utilities-checkbox-color-05);
+				background-size: $utilities-checkbox-icon-bg-size auto;
+			}
+		}
+	}
+}
+
+// Palette - Quick Guide
+// 01. Update $utilities-palette-selector (in _variables.scss) if you require more specific selectors.
+// 02. Markup should look similar to the following:
+// 		<ul class="ss-palette">
+// 			<li ng-repeat="loopGoesHere" class="ss-palette-option">
+// 				<a href="valueUrl" class="ss-palette-link" ng-class="{'ss-active': activeConditional}" alt="valueLabel">
+// 					<div class="ss-palette-block">
+// 						<div ng-style="{'background-color': valueColor }" class="ss-palette-color ss-palette-color-valueColor"></div>
+// 					</div>
+// 					<div class="ss-palette-label">valueLabel</div>
+// 				</a>
+// 			</li>
+// 		</ul>
+// 03. Place additional overrides (e.g. adjustments for autocomplete) inside the $utilities-palette conditional.
+// 04. These styles can be used for other palettes (such as item display), but code should be updated to match the CSS rules.
+// 05. Label can be removed from HTML or hidden using the $utilities-palette-label option in _variables.scss.
+// 06. To remove styles in an area (AutoComplete versus sidebar), on the facet type delete the classes or entire HTML block.
+// 07. Alternatively, use $utilities-palette-selector to make the selector more specific.
+
+@if $utilities-palette == true {
+	/* Utilities - Palette */
+
+	#{$utilities-palette-selector} {
+		list-style: none;
+		@include grid-parent($utilities-palette-gutter);
+		.ss-palette-option {
+			width: 100% / $utilities-palette-size;
+			@include box-sizing;
+			@include grid-child($utilities-palette-gutter);
+			.ss-palette-block {
+				@include sizing(100%, 0);
+				padding-bottom: 100%;
+				position: relative;
+				.ss-palette-color {
+					@include position($type: absolute, $top: 0, $right: 0, $bottom: 0, $left: 0);
+					margin: auto;
+					@if nth($utilities-palette-border, 1) != '' {
+						@include format-border($utilities-palette-color-01, $utilities-palette-border);
+					} @else {
+						@if nth($utilities-palette-border, 4) != '' {
+							@include border-radius(nth($utilities-palette-border, 4));
+						}
+						$inactive-border: 'border', nth($utilities-palette-border, 2), nth($utilities-palette-border, 3), '';
+						&[class*='white'], &[class*='clear'], &.ss-palette-color:not([style*='background-color']) {
+							@include format-border($utilities-palette-color-01, $inactive-border);
+						}
+					}
+				}
+				.ss-palette-color-brown {
+					background-color: #845329 !important;
+				}
+				.ss-palette-color-purple {
+					background-color: #7c368e !important;
+				}
+				.ss-palette-color-multi, .ss-palette-color-multicolor {
+					@include gradient-five(#2857da, #2857da, #28da46, #f5e418, #f28500, #da2848);
+					border: none !important;
+				}
+			}
+			.ss-palette-label {
+				@if $utilities-palette-label == true {
+					text-overflow: ellipsis;
+					overflow: hidden;
+					text-align: center;
+					height: $utilities-palette-label-height;
+					@include format-text($utilities-palette-color-02, $utilities-palette-label-font);
+					@if nth($utilities-palette-label-font, 1) != '' {
+						line-height: nth($utilities-palette-label-font, 1) + 2px;
+					}
+					margin: 2.5px 0 0 0;
+				} @else {
+					display: none;
+				}
+			}
+			.ss-active {
+				.ss-palette-block .ss-palette-color:after {
+					content: '';
+					display: block;
+					@include sizing(100%, 100%);
+					background-size: 60% auto;
+					@include ss-icon($utilities-palette-icon-type, $utilities-palette-color-03, $utilities-palette-color-04, 1);
+				}
+				.ss-palette-label {
+					@include format-text($utilities-palette-color-05, $utilities-palette-label-font-active);
+				}
+			}
+		}
+		@if $utilities-palette-size != $utilities-palette-bp1-size {
+			@include respond($utilities-palette-bp1) {
+				.ss-palette-option {
+					width: 100% / $utilities-palette-bp1-size;
+				}
+			}
+		}
+		@if $utilities-palette-bp1-size != $utilities-palette-bp2-size {
+			@include respond($utilities-palette-bp2) {
+				.ss-palette-option {
+					width: 100% / $utilities-palette-bp2-size;
+				}
+			}
+		}
+	}
+}
+
+// Grid - Quick Guide
+// 01. Update $utilities-grid-selector (in _variables.scss) if you require more specific selectors.
+// 02. Markup should look similar to the following:
+// 		<ul class="ss-grid">
+// 			<li ng-repeat="loopGoesHere" class="ss-grid-option">
+// 				<a href="valueUrl" class="ss-grid-link" ng-class="{'ss-active': activeConditional}">
+// 					<div class="ss-grid-block">
+// 						<div class="ss-grid-value">
+// 							<div class="ss-grid-label">valueLabel</div>
+// 						</div>
+// 					</div>
+// 				</a>
+// 			</li>
+// 		</ul>
+// 03. Place additional overrides (e.g. adjustments for autocomplete) inside the $utilities-grid conditional.
+// 04. These styles can be used for other grids (such as item display), but code should be updated to match the CSS rules.
+// 05. To remove styles in an area (AutoComplete versus sidebar), on the facet type delete the classes or entire HTML block.
+// 06. Alternatively, use $utilities-grid-selector to make the selector more specific.
+
+@if $utilities-grid == true {
+	/* Utilities - Grid */
+
+	#{$utilities-grid-selector} {
+		list-style: none;
+		@include grid-parent($utilities-grid-gutter);
+		.ss-grid-option {
+			width: 100% / $utilities-grid-size;
+			@include box-sizing;
+			@include grid-child($utilities-grid-gutter);
+			.ss-grid-block {
+				@include sizing(100%, 0);
+				padding-bottom: 100%;
+				&, & .ss-grid-value .ss-grid-label {
+					position: relative;
+				}
+				.ss-grid-value {
+					overflow: hidden;
+					@include position($type: absolute, $top: 0, $right: 0, $bottom: 0, $left: 0);
+					margin: auto;
+					padding: 2px;
+					@include format-border($utilities-grid-color-01, $utilities-grid-border);
+					background: $utilities-grid-color-02;
+					.ss-grid-label {
+						top: 50%;
+						@include transform(translateY(-50%));
+						@include format-text($utilities-grid-color-03, $utilities-grid-label-font);
+						@if nth($utilities-grid-label-font, 1) != '' {
+							line-height: nth($utilities-grid-label-font, 1);
+						}
+						text-align: center;
+					}
+				}
+			}
+			.ss-active .ss-grid-block .ss-grid-value {
+				@include format-border($utilities-grid-color-04, $utilities-grid-border-active);
+				@if $utilities-grid-color-02 != $utilities-grid-color-05 {
+					background: $utilities-grid-color-05;
+				}
+				.ss-grid-label {
+					@include format-text($utilities-grid-color-06, $utilities-grid-label-font-active);
+				}
+			}
+		}
+		@if $utilities-grid-size != $utilities-grid-bp1-size {
+			@include respond($utilities-grid-bp1) {
+				.ss-grid-option {
+					width: 100% / $utilities-grid-bp1-size;
+				}
+			}
+		}
+		@if $utilities-grid-bp1-size != $utilities-grid-bp2-size {
+			@include respond($utilities-grid-bp2) {
+				.ss-grid-option {
+					width: 100% / $utilities-grid-bp2-size;
+				}
+			}
+		}
+	}
+}
+
+// Dropdowns - Quick Guide
+// 01. Update $utilities-dropdown-selector (in _variables.scss) if you require more specific selectors.
+// 02. Markup should look similar to the following:
+//		<div class="ss-dropdown-menu" ng-class="{'ss-expanded': utilities.dropdown.open == openConditional}">
+//			<div class="ss-menu-label" ng-click="utilities.dropdown.show(conditionalToCheck, $event)">
+//				<strong>Name:</strong> {{ activeValue }}
+//				<div class="ss-menu-toggle-icon"></div>
+//			</div>
+//			<ul class="ss-list">
+//				<li ng-repeat="yourLoopHere" class="ss-list-option"></li>
+//			</ul>
+//		</div>
+// 03. Place additional overrides (e.g. adjustments for autocomplete) inside the $utilities-dropdown conditional.
+// 04. These styles can be used for various dropdowns, but code should be updated to match the CSS rules.
+
+@if $utilities-dropdown == true {
+	/* Utilities - Dropdowns */
+
+	$margin-adjust: $utilities-dropdown-list-top-position - get-border-size($utilities-dropdown-list-border, half);
+
+	#{$utilities-dropdown-selector} {
+		&, .ss-menu-label {
+			position: relative;
+		}
+		.ss-menu-label .ss-menu-toggle-icon, .ss-list {
+			position: absolute;
+		}
+		.ss-menu-label, .ss-list .ss-list-option .ss-list-link {
+			cursor: pointer;
+		}
+		.ss-menu-label {
+			@include format-border($utilities-dropdown-color-03, $utilities-dropdown-label-border);
+			@include format-text($utilities-dropdown-color-01, $utilities-dropdown-label-font);
+			@if $utilities-dropdown-color-02 != '' {
+				background: $utilities-dropdown-color-02;
+			}
+			@if $utilities-dropdown-label-shadow != '' {
+				@include box-shadow(nth($utilities-dropdown-label-shadow, 1), nth($utilities-dropdown-label-shadow, 2));
+			}
+			margin: 0;
+			$collapse-padding: ($utilities-dropdown-list-padding * 2) + $utilities-dropdown-collapse-size;
+			@if $utilities-dropdown-collapse-side == left {
+				padding: 0 $utilities-dropdown-list-padding 0 $collapse-padding;
+			} @else {
+				padding: 0 $collapse-padding 0 $utilities-dropdown-list-padding;
+			}
+			line-height: $utilities-dropdown-list-height - get-border-size($utilities-dropdown-label-border);
+			height: $utilities-dropdown-list-height;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			strong {
+				padding-right: 5px;
+			}
+			.ss-menu-toggle-icon {
+				@include sizing($utilities-dropdown-collapse-size, $utilities-dropdown-collapse-size);
+				@include ss-icon($type: $utilities-dropdown-collapse-collapsed, $fill: $utilities-dropdown-color-08);
+				@include position($top: 0, $bottom: 0);
+				#{$utilities-dropdown-collapse-side}: $utilities-dropdown-list-padding;
+				margin: auto;
+			}
+		}
+		.ss-list {
+			@include format-border($utilities-dropdown-color-05, $utilities-dropdown-list-border);
+			@if $utilities-dropdown-color-04 != '' {
+				background: $utilities-dropdown-color-04;
+			}
+			@if $utilities-dropdown-list-shadow != '' {
+				@include box-shadow(nth($utilities-dropdown-list-shadow, 1), nth($utilities-dropdown-list-shadow, 2));
+			}
+			margin: $margin-adjust 0 0 0;
+			padding: $utilities-dropdown-list-padding;
+			@include position($top: $utilities-dropdown-list-height, $left: 0, $right: 0, $z: -1);
+			visibility: hidden;
+			opacity: 0;
+			@include transition(opacity 0.3s ease);
+			.ss-list-option {
+				@include format-spacing($utilities-dropdown-option-spacing);
+				&:last-child {
+					@if nth($utilities-dropdown-option-spacing, 1) != '' {
+						margin-bottom: 0;
+					}
+					@if nth($utilities-dropdown-option-spacing, 2) != '' {
+						padding-bottom: 0;
+					}
+				}
+				.ss-list-link {
+					@include format-text($utilities-dropdown-color-06, $utilities-dropdown-option-font);
+				}
+				.ss-active {
+					@include format-text($utilities-dropdown-color-07, $utilities-dropdown-option-font-active);
+				}
+			}
+			&.ss-list-bottom {
+				top: auto;
+				bottom: $utilities-dropdown-list-height;
+				margin: 0 0 $margin-adjust 0;
+			}
+		}
+		&.ss-expanded {
+			z-index: 22;
+			.ss-menu-label .ss-menu-toggle-icon {
+				@include ss-icon($type: $utilities-dropdown-collapse-expanded, $fill: $utilities-dropdown-color-08, $bgprop: false);
+			}
+			.ss-list {
+				z-index: 2;
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+}

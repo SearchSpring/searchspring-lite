@@ -1,0 +1,20 @@
+{
+	"type": "v3/facet-slider/default",
+	"version": "1.1.2",
+	"description": "default facet slider style",
+	"author": "searchspring",
+	"requires": ["v3/mixins/default"],
+	"variables": {
+		"style": {
+			"value": "inherit",
+			"default": "skeleton",
+			"type": "select",
+			"options": [],
+			"description": "style to use for this module",
+			"export": {
+				"sass": false,
+				"js": false
+			}
+		}
+	}
+}

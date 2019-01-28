@@ -1,0 +1,35 @@
+<!-- Pagination -->
+<script type="text/ss-template" name="Pagination" target=".ss-pagination-container">
+	<div class="ss-pagination">
+		<ul class="ss-pagination-list">
+			<li ng-if="pagination.previous" class="ss-page ss-page-previous">
+				<a ng-href="{{ pagination.previous.url }}" class="ss-page-link">Previous</a>
+			</li>
+
+			<li ng-if="pagination.totalPages > 5 && pagination.currentPage > 3" class="ss-page">
+				<a ng-href="{{ pagination.first.url }}" class="ss-page-link">{{ pagination.first.number }}</a>
+			</li>
+
+			<li ng-if="pagination.totalPages > 5 && pagination.currentPage > 3" class="ss-page">
+				<span class="ss-page-label">&hellip;</span>
+			</li>
+
+			<li ng-repeat="page in pagination.getPages(5)" class="ss-page" ng-class="{'ss-active': page.active}">
+				<a ng-if="!page.active" ng-href="{{ page.url }}" class="ss-page-link">{{ page.number }}</a>
+				<span ng-if="page.active" class="ss-page-label">{{ page.number }}</span>
+			</li>
+
+			<li ng-if="pagination.totalPages > 5 && pagination.currentPage < (pagination.totalPages - 2)" class="ss-page">
+				<span class="ss-page-label">&hellip;</span>
+			</li>
+
+			<li ng-if="pagination.totalPages > 5 && pagination.currentPage < (pagination.totalPages - 2)" class="ss-page">
+				<a ng-href="{{ pagination.last.url }}" class="ss-page-link">{{ pagination.last.number }}</a>
+			</li>
+
+			<li ng-if="pagination.next" class="ss-page ss-page-next">
+				<a ng-href="{{ pagination.next.url }}" class="ss-page-link">Next</a>
+			</li>
+		</ul>
+	</div>
+</script>

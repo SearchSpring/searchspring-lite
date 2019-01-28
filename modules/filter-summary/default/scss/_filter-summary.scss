@@ -1,0 +1,119 @@
+@import "._variables.scss";
+
+$filter-summary_module: true;
+
+@if $filter-summary-on == true {
+	/* Filter Summary */
+
+	.ss-summary .ss-summary-container {
+		@include format-spacing($filter-summary-container-spacing);
+		@include format-border($filter-summary-container-color-02, $filter-summary-container-border);
+		@if nth($filter-summary-container-border, 4) != '' {
+			overflow: hidden;
+		}
+		@if $filter-summary-container-color-01 != '' {
+			background: $filter-summary-container-color-01;
+		}
+		@if $filter-summary-container-shadow != '' {
+			@include box-shadow(nth($filter-summary-container-shadow, 1), nth($filter-summary-container-shadow, 2));
+		}
+		.ss-title {
+			@include format-text($filter-summary-title-color-01, $filter-summary-title-font);
+			@include format-border($filter-summary-title-color-02, $filter-summary-title-border);
+			@include format-spacing($filter-summary-title-spacing);
+			@if $filter-summary-title-color-03 != '' {
+				background: $filter-summary-title-color-03;
+			}
+		}
+		.ss-inline-summary-title {
+			display: none;
+			.ss-summary-label {
+				display: block;
+				@include format-text($filter-summary-title-color-04, $filter-summary-inline-title-font);
+				@include format-spacing($filter-summary-inline-title-spacing);
+			}
+		}
+		.ss-list {
+			&, & li {
+				list-style: none;
+			}
+			@include clearfix('&');
+			@include grid-parent($filter-summary-gutter, $type: false);
+			.ss-list-option {
+				@include grid-child($filter-summary-gutter, $type: false);
+				@if $filter-summary-style == style1 {
+					float: left;
+				}
+				.ss-list-link {
+					&, &:before {
+						display: block;
+					}
+					position: relative;
+					@include format-text($filter-summary-color-01, $filter-summary-font);
+					@if $filter-summary-style == style1 {
+						padding: $filter-summary-style1-padding;
+						background: $filter-summary-color-02;
+						@include format-border($filter-summary-color-03, $filter-summary-border);
+					} @else if $filter-summary-style == style2 {
+						$padding-direction: left;
+						@if $filter-summary-style2-right != '' {
+							$padding-direction: right;
+						}
+						padding-#{$padding-direction}: $filter-summary-style2-padding;
+					}
+					&:before {
+						content: '';
+						@include sizing($filter-summary-icon-size, $filter-summary-icon-size);
+						position: absolute;
+						@include ss-icon($filter-summary-icon-type, $filter-summary-color-04);
+						@if $filter-summary-style == style1 {
+							top: $filter-summary-style1-top;
+							@if $filter-summary-style1-right != '' {
+								right: $filter-summary-style1-right;
+							} @else {
+								left: $filter-summary-style1-left;
+							}
+						} @else if $filter-summary-style == style2 {
+							top: $filter-summary-style2-top;
+							@if $filter-summary-style2-right != '' {
+								right: $filter-summary-style2-right;
+							} @else {
+								left: $filter-summary-style2-left;
+							}
+							@include format-border($filter-summary-color-03, $filter-summary-border);
+							background-color: $filter-summary-color-02;
+							background-size: $filter-summary-icon-bg-size auto;
+						}
+					}
+					@if $filter-summary-label-weight != '' {
+						.ss-summary-label {
+							font-weight: $filter-summary-label-weight;
+						}
+					}
+				}
+			}
+		}
+		@include respond($filter-summary-bp1-width) {
+			@include format-spacing($filter-summary-bp1-container-spacing);
+			@if $filter-summary-container-border-reset == true {
+				border: 0;
+			}
+		}
+	}
+
+	/* Filter Summary - Inline */
+
+	#{$filter-summary-inline-selector} {
+		.ss-summary .ss-summary-container {
+			.ss-title {
+				display: none;
+			}
+			.ss-inline-summary-title {
+				display: list-item;
+			}
+			.ss-list .ss-list-option {
+				float: left;
+			}
+		}
+	}
+}

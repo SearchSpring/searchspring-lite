@@ -1,0 +1,8 @@
+<!-- Range Slider -->
+<script type="text/ss-template" name="Range Slider" target=".ss-range-slider">
+	<div ng-if="facet.range[0] != facet.range[1]" ss-facet-slider="facet" class="ss-range-slider-container"></div>
+
+	<div ng-if="facet.range[0] != facet.range[1] && facet.facet_active" class="ss-range-slider-reset">
+		<a ng-if="facet.facet_active" ng-href="{{ location().remove('filter', facet.field).url() }}" class="ss-range-slider-reset-link">Reset</a>
+	</div>
+</script>
