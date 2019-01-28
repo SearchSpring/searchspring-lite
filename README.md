@@ -1,1 +1,1 @@
-# searchspring-lite
+# searchspring-lite-pike
